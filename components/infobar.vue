@@ -10,7 +10,6 @@
       </section>
       <div class="line"></div>
       <div id="_progress"></div>
-      <div id="_percent"></div>
     </header>
   </client-only>
 </template>
@@ -61,6 +60,8 @@ export default {
 header {
   width: 85%;
   position: fixed;
+  background-color: white;
+  z-index: 10;
 }
 
 .line {
@@ -71,13 +72,14 @@ header {
 
 .container {
   margin: 0;
+  display: flex;
 }
 
 #_progress {
   --scroll: 0%;
   background: linear-gradient(
     to right,
-    rgb(0, 165, 82) var(--scroll),
+    rgb(0, 0, 0) var(--scroll),
     transparent 0
   );
   position: fixed;

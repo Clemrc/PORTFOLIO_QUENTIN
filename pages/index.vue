@@ -1,14 +1,28 @@
 <template>
-  <div class="container">
-    <client-only>
-      <div class="content">
-        <div class="title-content">
-          <h1 class="title">Book</h1>
-          <div class="square"></div>
+  <div>
+    <div class="container">
+      <client-only>
+        <div class="content">
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <!-- <div class="projects-content"></div> -->
         </div>
-        <div class="projects-content"></div>
-      </div>
-    </client-only>
+      </client-only>
+    </div>
   </div>
 </template>
 
@@ -17,7 +31,8 @@ import gsap from 'gsap'
 export default {
   transition: 'slide-fade',
   updated() {
-    gsap.from('.content', {
+    gsap.from('.title-content', {
+      delay: 0.5,
       duration: 1.5,
       opacity: 0,
       y: 50,
@@ -44,18 +59,33 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  /* height: 80vh; */
+  /* border: 1px solid red; */
+  /* overflow: scroll; */
+}
+
 .content {
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
+  flex-direction: column;
+  height: 2000px;
+  width: 100%;
+  /* border: 1px solid black; */
 }
 
 .title-content {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+}
+
+.projects-content {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
 }
 
 .title {
@@ -71,11 +101,5 @@ export default {
   background-color: black;
   margin-left: 14px;
   margin-bottom: 20px;
-}
-
-.container {
-  height: 2000px;
-  width: 100%;
-  position: relative;
 }
 </style>

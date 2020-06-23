@@ -1,18 +1,21 @@
 <template>
   <div class="app">
     <Infobar :title="title" />
-    <nuxt />
+    <nuxt class="nuxt" />
     <!-- <Nav /> -->
+    <Footer />
   </div>
 </template>
 
 <script>
 import Infobar from '@/components/infobar.vue'
+import Footer from '@/components/footer.vue'
 // import Nav from '@/components/navbar.vue'
 export default {
   components: {
     // Nav,
-    Infobar
+    Infobar,
+    Footer
   },
   data() {
     return {
@@ -22,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 *,
 *:before,
 *:after {
@@ -44,7 +47,6 @@ html {
 
 .app {
   min-height: 100vh;
-  padding: 0px 0px 20px 0px;
   width: 85%;
   margin: 0 auto;
   border: 3px black;
@@ -52,5 +54,10 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.nuxt {
+  margin-top: 110px;
+  width: 100%;
 }
 </style>
