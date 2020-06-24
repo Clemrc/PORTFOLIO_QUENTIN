@@ -19,6 +19,22 @@
             <h1 class="title">Book</h1>
             <div class="square"></div>
           </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="title">Book</h1>
+            <div class="square"></div>
+          </div>
           <!-- <div class="projects-content"></div> -->
         </div>
       </client-only>
@@ -59,18 +75,12 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  /* height: 80vh; */
-  /* border: 1px solid red; */
-  /* overflow: scroll; */
-}
-
 .content {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
   flex-direction: column;
-  height: 2000px;
+  /* height: 2000px; */
   width: 100%;
   /* border: 1px solid black; */
 }

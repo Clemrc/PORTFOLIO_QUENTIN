@@ -1,9 +1,14 @@
 <template>
   <div class="app">
-    <Infobar :title="title" />
+    <no-ssr>
+      <Infobar :title="title" />
+    </no-ssr>
+
     <nuxt class="nuxt" />
-    <!-- <Nav /> -->
-    <Footer />
+
+    <no-ssr>
+      <Footer />
+    </no-ssr>
   </div>
 </template>
 
@@ -57,7 +62,22 @@ html {
 }
 
 .nuxt {
-  margin-top: 110px;
+  margin-top: 80px;
   width: 100%;
+}
+
+footer {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .nuxt {
+    margin-top: 110px;
+    margin-bottom: 110px;
+  }
+
+  footer {
+    display: block;
+  }
 }
 </style>
