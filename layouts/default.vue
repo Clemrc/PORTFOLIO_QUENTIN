@@ -1,30 +1,43 @@
 <template>
-  <div class="app">
-    <no-ssr>
-      <Infobar :title="title" />
-    </no-ssr>
+  <div class="app" :class="mode">
+    <div class="app-content">
+      <no-ssr>
+        <Infobar :title="title" :mode="mode" @toggle="toggle" />
+      </no-ssr>
 
-    <nuxt class="nuxt" />
+      <no-ssr>
+        <nuxt class="nuxt" />
+      </no-ssr>
 
-    <no-ssr>
-      <Footer />
-    </no-ssr>
+      <no-ssr>
+        <Footer />
+      </no-ssr>
+    </div>
   </div>
 </template>
 
 <script>
 import Infobar from '@/components/infobar.vue'
 import Footer from '@/components/footer.vue'
-// import Nav from '@/components/navbar.vue'
+
 export default {
   components: {
-    // Nav,
     Infobar,
     Footer
   },
   data() {
     return {
-      title: 'PORTFOLIO'
+      title: 'DMQ',
+      mode: 'light'
+    }
+  },
+  methods: {
+    toggle() {
+      if (this.mode === 'dark') {
+        this.mode = 'light'
+      } else {
+        this.mode = 'dark'
+      }
     }
   }
 }
@@ -39,8 +52,7 @@ export default {
 }
 
 html {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica';
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -50,11 +62,10 @@ html {
   box-sizing: border-box;
 }
 
-.app {
+.app-content {
   min-height: 100vh;
   width: 85%;
   margin: 0 auto;
-  border: 3px black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,10 +81,19 @@ footer {
   display: none;
 }
 
+/* DARK MODE */
+
+.dark {
+  background-color: #000000;
+  transition: 0.5s;
+}
+
+/* MEDIAQUERIES */
+
 @media screen and (min-width: 1000px) {
   .nuxt {
-    margin-top: 110px;
-    margin-bottom: 110px;
+    margin-top: 100px;
+    margin-bottom: 150px;
   }
 
   footer {

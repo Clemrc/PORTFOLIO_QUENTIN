@@ -1,59 +1,121 @@
 <template>
   <div>
     <div class="container">
-      <client-only>
-        <div class="content">
+      <div class="content">
+        <!-- Entrance -->
+        <div class="entrance">
+          <img src="/DMQ.png" />
+        </div>
+
+        <!-- Acceuil -->
+        <div class="acceuil">
           <div class="title-content">
-            <h1 class="title">Book</h1>
+            <h1 class="title">QUENTIN DEMARIA</h1>
             <div class="square"></div>
           </div>
           <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
+            <h1 class="job">Designer graphique</h1>
           </div>
           <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="title">Book</h1>
-            <div class="square"></div>
+            <h1 class="place">ORLEAN</h1>
           </div>
           <!-- <div class="projects-content"></div> -->
         </div>
-      </client-only>
+        <div class="acceuil">
+          <div class="title-content">
+            <h1 class="title">QUENTIN DEMARIA</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="job">Designer graphique</h1>
+          </div>
+          <div class="title-content">
+            <h1 class="place">ORLEAN</h1>
+          </div>
+          <!-- <div class="projects-content"></div> -->
+        </div>
+        <div class="acceuil">
+          <div class="title-content">
+            <h1 class="title">QUENTIN DEMARIA</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="job">Designer graphique</h1>
+          </div>
+          <div class="title-content">
+            <h1 class="place">ORLEAN</h1>
+          </div>
+          <!-- <div class="projects-content"></div> -->
+        </div>
+        <div class="acceuil">
+          <div class="title-content">
+            <h1 class="title">QUENTIN DEMARIA</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="job">Designer graphique</h1>
+          </div>
+          <div class="title-content">
+            <h1 class="place">ORLEAN</h1>
+          </div>
+          <!-- <div class="projects-content"></div> -->
+        </div>
+        <div class="acceuil">
+          <div class="title-content">
+            <h1 class="title">QUENTIN DEMARIA</h1>
+            <div class="square"></div>
+          </div>
+          <div class="title-content">
+            <h1 class="job">Designer graphique</h1>
+          </div>
+          <div class="title-content">
+            <h1 class="place">ORLEAN</h1>
+          </div>
+          <!-- <div class="projects-content"></div> -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import gsap from 'gsap'
+import { TimelineMax } from 'gsap'
 export default {
   transition: 'slide-fade',
-  updated() {
-    gsap.from('.title-content', {
-      delay: 0.5,
+  mounted() {
+    const tl = new TimelineMax()
+
+    tl.to('.entrance', {
+      delay: 1,
       duration: 1.5,
-      opacity: 0,
-      y: 50,
+      opacity: 1,
+      y: 150,
       ease: 'expo'
     })
+      .to('.entrance', {
+        delay: 0.5,
+        duration: 1,
+        opacity: 0,
+        y: 100,
+        ease: 'expo'
+      })
+      .call(this.removeElement('.entrance'))
+      .to('.acceuil', {
+        duration: 1.5,
+        opacity: 1,
+        y: 0,
+        ease: 'expo'
+      })
+  },
+  methods: {
+    removeElement: (element) => {
+      if (typeof element === 'string') {
+        element = document.querySelector(element)
+      }
+      return function() {
+        element.parentNode.removeChild(element)
+      }
+    }
   },
   head() {
     return {
@@ -80,22 +142,45 @@ export default {
   justify-content: flex-start;
   align-items: baseline;
   flex-direction: column;
-  /* height: 2000px; */
   width: 100%;
-  /* border: 1px solid black; */
+}
+
+.entrance {
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateY(200px);
+}
+
+.entrance img {
+  width: 50%;
+}
+
+.acceuil {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.name {
+  font-weight: 400;
+  font-size: 200px;
+  color: black;
+  margin-bottom: 0;
 }
 
 .title-content {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+  margin-bottom: 10px;
 }
 
 .projects-content {
-  margin: 10px;
-  width: 20px;
-  height: 20px;
-  background-color: black;
+  margin: 0 auto;
+  width: 80%;
+  height: 1000px;
+  border: 1px solid black;
 }
 
 .title {
@@ -105,11 +190,47 @@ export default {
   margin-bottom: 0;
 }
 
+.job {
+  font-weight: 100;
+  font-size: 60px;
+  color: black;
+  margin-bottom: 0;
+}
+
+.place {
+  font-weight: 100;
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+}
+
 .square {
   width: 13px;
   height: 13px;
   background-color: black;
   margin-left: 14px;
   margin-bottom: 20px;
+}
+
+/* DARK MODE */
+
+.dark .title {
+  color: white;
+  transition: 0.5s;
+}
+
+.dark .place {
+  color: white;
+  transition: 0.5s;
+}
+
+.dark .job {
+  color: white;
+  transition: 0.5s;
+}
+
+.dark .square {
+  background-color: white;
+  transition: 0.5s;
 }
 </style>

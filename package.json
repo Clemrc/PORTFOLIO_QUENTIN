@@ -14,7 +14,8 @@
   "dependencies": {
     "bulma": "^0.8.2",
     "gsap": "^3.2.6",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-lazy-hydration": "^1.0.0-beta.12"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

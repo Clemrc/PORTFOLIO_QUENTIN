@@ -1,40 +1,58 @@
 <template>
-  <client-only>
-    <header>
-      <section class="hero">
-        <div class="hero-body">
-          <div class="container">
+  <header>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <nuxt-link to="/">
             <h2 class="title">{{ title }}</h2>
-          </div>
+          </nuxt-link>
+          <nav>
+            <ul>
+              <li>
+                <nuxt-link to="/projets" class="link">Projets</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/contact" class="link">Contact</nuxt-link>
+              </li>
+              <li>
+                <toggle :mode="mode" @toggle="$emit('toggle')" />
+              </li>
+            </ul>
+          </nav>
         </div>
-      </section>
-      <div class="line"></div>
-      <div id="_progress"></div>
-    </header>
-  </client-only>
+      </div>
+    </section>
+    <div class="line"></div>
+    <div id="_progress"></div>
+  </header>
 </template>
 
 <script>
 import gsap from 'gsap'
+import toggle from '@/components/toggle.vue'
 export default {
-  props: {
-    title: String
+  components: {
+    toggle
   },
-  updated() {
+  props: {
+    title: String,
+    mode: String
+  },
+  mounted() {
     gsap.from('.hero', {
+      delay: 3,
       duration: 1.5,
       opacity: 0,
-      y: 50,
+      y: -50,
       ease: 'expo'
     })
     gsap.from('.line', {
-      duration: 1.5,
+      delay: 3,
+      duration: 1,
       opacity: 0,
-      y: 100,
+      y: -100,
       ease: 'expo'
     })
-  },
-  mounted() {
     document.addEventListener('scroll', function() {
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop
@@ -64,6 +82,10 @@ header {
   z-index: 10;
 }
 
+.hero-body {
+  padding: 1rem 0rem;
+}
+
 .line {
   height: 1px;
   width: 100%;
@@ -71,8 +93,10 @@ header {
 }
 
 .container {
+  max-width: 100%;
   margin: 0;
   display: flex;
+  justify-content: space-between;
 }
 
 #_progress {
@@ -88,5 +112,63 @@ header {
   right: 0px;
   top: 0px;
   z-index: 100;
+}
+
+// DARK MODE
+
+.dark header {
+  background-color: #000000;
+  transition: 0.5s;
+}
+
+.dark .title {
+  color: white;
+  transition: 0.5s;
+}
+
+.dark .line {
+  background-color: white;
+  transition: 0.5s;
+}
+
+.dark #_progress {
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) var(--scroll),
+    transparent 0
+  );
+}
+
+// MEDIAQUERIES
+
+@media screen and (min-width: 1000px) {
+  .hero-body {
+    padding: 1.5rem 0rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 10px;
+  }
+
+  nav ul li:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    color: #192734;
+  }
+
+  .dark nav ul li a {
+    color: white;
+  }
 }
 </style>

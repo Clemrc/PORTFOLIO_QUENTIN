@@ -11,6 +11,7 @@ import gsap from 'gsap'
 export default {
   mounted() {
     gsap.from('.footer', {
+      delay: 3,
       duration: 1.5,
       opacity: 0,
       y: 50,
@@ -33,5 +34,12 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: white;
+}
+
+.dark .footer {
+  border-top: 1px solid white;
+  background-color: #000000;
+  color: white;
+  transition: 0.5s;
 }
 </style>
