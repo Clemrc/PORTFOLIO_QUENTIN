@@ -14,9 +14,9 @@
               <li>
                 <nuxt-link to="/contact" class="link">Contact</nuxt-link>
               </li>
-              <li>
+              <!-- <li>
                 <toggle :mode="mode" @toggle="$emit('toggle')" />
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
@@ -29,14 +29,20 @@
 
 <script>
 import gsap from 'gsap'
-import toggle from '@/components/toggle.vue'
+// import toggle from '@/components/toggle.vue'
 export default {
-  components: {
-    toggle
-  },
+  // components: {
+  //   toggle
+  // },
   props: {
-    title: String,
-    mode: String
+    title: {
+      type: String,
+      required: true
+    },
+    mode: {
+      type: String,
+      required: true
+    }
   },
   mounted() {
     gsap.from('.hero', {
@@ -82,10 +88,6 @@ header {
   z-index: 10;
 }
 
-.hero-body {
-  padding: 1rem 0rem;
-}
-
 .line {
   height: 1px;
   width: 100%;
@@ -97,6 +99,31 @@ header {
   margin: 0;
   display: flex;
   justify-content: space-between;
+}
+
+.hero-body {
+  padding: 1rem 0rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 10px;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #192734;
 }
 
 #_progress {
@@ -139,36 +166,13 @@ header {
   );
 }
 
-// MEDIAQUERIES
+.dark nav ul li a {
+  color: white;
+}
 
 @media screen and (min-width: 1000px) {
   .hero-body {
     padding: 1.5rem 0rem;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-  }
-
-  nav ul {
-    display: flex;
-  }
-
-  nav ul li {
-    margin-left: 10px;
-  }
-
-  nav ul li:not(:last-child) {
-    margin-right: 10px;
-  }
-
-  nav ul li a {
-    color: #192734;
-  }
-
-  .dark nav ul li a {
-    color: white;
   }
 }
 </style>

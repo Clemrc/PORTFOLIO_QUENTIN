@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  props: ['mode']
+  props: {
+    mode: {
+      type: String,
+      required: true
+    }
+  }
 }
 </script>
 

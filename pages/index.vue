@@ -8,71 +8,101 @@
         </div>
 
         <!-- Acceuil -->
-        <div class="acceuil">
-          <div class="title-content">
-            <h1 class="title">QUENTIN DEMARIA</h1>
-            <div class="square"></div>
+        <transition name="slide-fade">
+          <div v-if="show" class="content-list">
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
+            <div class="acceuil">
+              <div class="title-content">
+                <h1 class="title">QUENTIN DEMARIA</h1>
+                <div class="square"></div>
+              </div>
+              <div class="title-content">
+                <h1 class="job">Designer graphique</h1>
+              </div>
+              <div class="title-content">
+                <h1 class="place">ORLEANS</h1>
+              </div>
+              <!-- <div class="projects-content"></div> -->
+            </div>
           </div>
-          <div class="title-content">
-            <h1 class="job">Designer graphique</h1>
-          </div>
-          <div class="title-content">
-            <h1 class="place">ORLEAN</h1>
-          </div>
-          <!-- <div class="projects-content"></div> -->
-        </div>
-        <div class="acceuil">
-          <div class="title-content">
-            <h1 class="title">QUENTIN DEMARIA</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="job">Designer graphique</h1>
-          </div>
-          <div class="title-content">
-            <h1 class="place">ORLEAN</h1>
-          </div>
-          <!-- <div class="projects-content"></div> -->
-        </div>
-        <div class="acceuil">
-          <div class="title-content">
-            <h1 class="title">QUENTIN DEMARIA</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="job">Designer graphique</h1>
-          </div>
-          <div class="title-content">
-            <h1 class="place">ORLEAN</h1>
-          </div>
-          <!-- <div class="projects-content"></div> -->
-        </div>
-        <div class="acceuil">
-          <div class="title-content">
-            <h1 class="title">QUENTIN DEMARIA</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="job">Designer graphique</h1>
-          </div>
-          <div class="title-content">
-            <h1 class="place">ORLEAN</h1>
-          </div>
-          <!-- <div class="projects-content"></div> -->
-        </div>
-        <div class="acceuil">
-          <div class="title-content">
-            <h1 class="title">QUENTIN DEMARIA</h1>
-            <div class="square"></div>
-          </div>
-          <div class="title-content">
-            <h1 class="job">Designer graphique</h1>
-          </div>
-          <div class="title-content">
-            <h1 class="place">ORLEAN</h1>
-          </div>
-          <!-- <div class="projects-content"></div> -->
-        </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -82,6 +112,11 @@
 import { TimelineMax } from 'gsap'
 export default {
   transition: 'slide-fade',
+  data() {
+    return {
+      show: false
+    }
+  },
   mounted() {
     const tl = new TimelineMax()
 
@@ -89,23 +124,18 @@ export default {
       delay: 1,
       duration: 1.5,
       opacity: 1,
-      y: 150,
+      y: 120,
       ease: 'expo'
     })
       .to('.entrance', {
         delay: 0.5,
         duration: 1,
         opacity: 0,
-        y: 100,
+        y: 80,
         ease: 'expo'
       })
       .call(this.removeElement('.entrance'))
-      .to('.acceuil', {
-        duration: 1.5,
-        opacity: 1,
-        y: 0,
-        ease: 'expo'
-      })
+      .call(this.showContent(this))
   },
   methods: {
     removeElement: (element) => {
@@ -114,6 +144,11 @@ export default {
       }
       return function() {
         element.parentNode.removeChild(element)
+      }
+    },
+    showContent: (c) => {
+      return function() {
+        c.show = true
       }
     }
   },
@@ -148,18 +183,12 @@ export default {
 .entrance {
   opacity: 0;
   width: 100%;
-  text-align: center;
-  transform: translateY(200px);
+  display: flex;
+  justify-content: center;
 }
 
 .entrance img {
   width: 50%;
-}
-
-.acceuil {
-  width: 100%;
-  opacity: 0;
-  transform: translateY(-50px);
 }
 
 .name {
@@ -205,11 +234,7 @@ export default {
 }
 
 .square {
-  width: 13px;
-  height: 13px;
-  background-color: black;
-  margin-left: 14px;
-  margin-bottom: 20px;
+  display: none;
 }
 
 /* DARK MODE */
@@ -232,5 +257,17 @@ export default {
 .dark .square {
   background-color: white;
   transition: 0.5s;
+}
+
+/* MEDIAQUERIES */
+
+@media screen and (min-width: 1000px) {
+  .square {
+    width: 13px;
+    height: 13px;
+    background-color: black;
+    margin-left: 14px;
+    margin-bottom: 20px;
+  }
 }
 </style>

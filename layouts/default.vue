@@ -1,17 +1,11 @@
 <template>
   <div class="app" :class="mode">
     <div class="app-content">
-      <no-ssr>
-        <Infobar :title="title" :mode="mode" @toggle="toggle" />
-      </no-ssr>
+      <Infobar :title="title" :mode="mode" @toggle="darkmode" />
 
-      <no-ssr>
-        <nuxt class="nuxt" />
-      </no-ssr>
+      <nuxt class="nuxt" />
 
-      <no-ssr>
-        <Footer />
-      </no-ssr>
+      <Footer />
     </div>
   </div>
 </template>
@@ -32,7 +26,7 @@ export default {
     }
   },
   methods: {
-    toggle() {
+    darkmode() {
       if (this.mode === 'dark') {
         this.mode = 'light'
       } else {
@@ -62,6 +56,10 @@ html {
   box-sizing: border-box;
 }
 
+.app {
+  height: 100%;
+}
+
 .app-content {
   min-height: 100vh;
   width: 85%;
@@ -75,6 +73,7 @@ html {
 .nuxt {
   margin-top: 80px;
   width: 100%;
+  height: calc(100vh - 80px);
 }
 
 footer {
@@ -93,7 +92,8 @@ footer {
 @media screen and (min-width: 1000px) {
   .nuxt {
     margin-top: 100px;
-    margin-bottom: 150px;
+    width: 100%;
+    height: calc(100vh - 100px);
   }
 
   footer {
